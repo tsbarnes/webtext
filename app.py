@@ -7,10 +7,6 @@ from multiprocessing import Process
 from flask import Flask
 app = Flask(__name__)
 
-@app.route('/')
-def hello_world():
-    write_string('Hello World!')
-    return 'Hello World!'
 
 def scroll_loop():
     while True:
@@ -18,12 +14,20 @@ def scroll_loop():
         show()
         time.sleep(0.05)
 
-if __name__ == '__main__':
+
+with app.app_context():
     write_string('Waiting...')
 
     p = Process(target=scroll_loop)
     p.start()
 
-    app.run()
 
+@app.route('/')
+def hello_world():
+    write_string('Hello World!')
+    return 'Hello World!'
+
+
+if __name__ == '__main__':
+    app.run()
     p.join()
