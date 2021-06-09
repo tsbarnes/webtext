@@ -8,14 +8,14 @@ from flask import Flask
 app = Flask(__name__)
 
 
-def scroll_loop():
-    while True:
-        scroll()
-        show()
-        time.sleep(0.05)
-
-
 with app.app_context():
+    def scroll_loop():
+        while True:
+            scroll()
+            show()
+            time.sleep(0.05)
+
+
     write_string('Waiting...')
 
     p = Process(target=scroll_loop)
