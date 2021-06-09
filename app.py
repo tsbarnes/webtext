@@ -19,7 +19,7 @@ def scroll_loop():
         time.sleep(1)
 
 if __name__ == '__main__':
-    write_string('', offset_x=0)
+    write_string('Waiting...', offset_x=0)
     recording_on = Value('b', True)
     p = Process(target=scroll_loop)
     p.start()
