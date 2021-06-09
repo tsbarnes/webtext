@@ -12,7 +12,7 @@ def hello_world():
     write_string('Hello World!', offset_x=0)
     return 'Hello World!'
 
-def scroll_loop(args):
+def scroll_loop():
     while True:
         scroll()
         show()
@@ -21,7 +21,7 @@ def scroll_loop(args):
 if __name__ == '__main__':
     write_string('', offset_x=0)
     recording_on = Value('b', True)
-    p = Process(target=scroll_loop, args=(recording_on,))
+    p = Process(target=scroll_loop)
     p.start()
-    app.run(debug=True, use_reloader=False)
+    app.run()
     p.join()
