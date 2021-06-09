@@ -12,7 +12,7 @@ def hello_world():
     write_string('Hello World!', offset_x=0)
     return 'Hello World!'
 
-def scroll_loop():
+def scroll_loop(args):
     while True:
         scroll()
         show()
