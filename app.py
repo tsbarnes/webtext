@@ -10,6 +10,8 @@ app = Flask(__name__)
 @app.route('/')
 def hello_world():
     write_string('Hello World!', offset_x=0)
+    scroll()
+    show()
     return 'Hello World!'
 
 def scroll_loop():
