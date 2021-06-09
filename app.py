@@ -2,7 +2,7 @@ import time
 import sys
 
 from microdotphat import write_string, scroll, show
-from multiprocessing import Process, Value
+from multiprocessing import Process
 
 from flask import Flask
 app = Flask(__name__)
@@ -20,7 +20,6 @@ def scroll_loop():
 
 if __name__ == '__main__':
     write_string('Waiting...', offset_x=0)
-    recording_on = Value('b', True)
     p = Process(target=scroll_loop)
     p.start()
     app.run()
