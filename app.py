@@ -16,7 +16,7 @@ def scroll_loop():
     while True:
         scroll()
         show()
-        time.sleep(1)
+        time.sleep(0.05)
 
 if __name__ == '__main__':
     write_string('Waiting...')
