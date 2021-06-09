@@ -13,13 +13,16 @@ def hello_world():
     return 'Hello World!'
 
 def scroll_loop():
-    write_string('Waiting...', offset_x=0)
     while True:
         scroll()
         show()
         time.sleep(1)
 
 if __name__ == '__main__':
+    write_string('Waiting...', offset_x=0)
+    scroll()
+    show()
+
     p = Process(target=scroll_loop)
     p.start()
     app.run()
