@@ -10,8 +10,6 @@ app = Flask(__name__)
 @app.route('/')
 def hello_world():
     write_string('Hello World!', offset_x=0)
-    scroll()
-    show()
     return 'Hello World!'
 
 def scroll_loop():
@@ -22,10 +20,10 @@ def scroll_loop():
 
 if __name__ == '__main__':
     write_string('Waiting...', offset_x=0)
-    scroll()
-    show()
 
     p = Process(target=scroll_loop)
     p.start()
+
     app.run()
+
     p.join()
