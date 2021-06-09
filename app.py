@@ -15,7 +15,6 @@ def hello_world():
 def scroll_loop():
     write_string('Waiting...', offset_x=0)
     while True:
-        print('Updating microdotphat')
         scroll()
         show()
         time.sleep(1)
