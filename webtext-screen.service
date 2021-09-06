@@ -1,0 +1,12 @@
+[Unit]
+Description=WebText Micro Dot pHAT screen controller
+After=local-fs.target network.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/python3 /home/pi/webtext/screen.py
+Restart=always
+
+[Install]
+WantedBy=default.target
+

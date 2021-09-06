@@ -1,0 +1,12 @@
+[Unit]
+Description=WebText Flask app
+After=local-fs.target network.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/python3 /home/pi/webtext/app.py
+Restart=always
+
+[Install]
+WantedBy=default.target
+
