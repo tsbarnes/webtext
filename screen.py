@@ -18,6 +18,6 @@ if __name__ == '__main__':
             message = None
 
         if message:
-            write_string(message[0].__str__())
+            write_string(" " + message[0].decode() + " ")
 
-        time.sleep(0.10)
+        time.sleep(1)
