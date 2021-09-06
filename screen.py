@@ -1,5 +1,6 @@
 import time
 from microdotphat import write_string, scroll, show
+import posix_ipc
 
 
 def scroll_loop():
