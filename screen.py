@@ -3,14 +3,21 @@ from microdotphat import write_string, scroll, show
 import posix_ipc
 
 
-def scroll_loop():
+write_string('Waiting...')
+
+mq = posix_ipc.MessageQueue("/webtext_ipc", flags=posix_ipc.O_CREAT)
+mq.block = False
+
+if __name__ == '__main__':
     while True:
         scroll()
         show()
-        time.sleep(0.05)
+        try:
+            message = mq.receive(timeout=10)
+        except posix_ipc.BusyError:
+            message = None
 
+        if message:
+            write_string(message[0].__str__())
 
-write_string('Waiting...')
-
-if __name__ == '__main__':
-    scroll_loop()
+        time.sleep(0.10)
