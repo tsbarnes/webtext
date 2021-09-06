@@ -4,7 +4,9 @@ After=local-fs.target network.target
 
 [Service]
 Type=simple
-ExecStart=/usr/bin/python3 /home/pi/webtext/app.py
+Environment=FLASK_APP=app.py:app
+WorkingDirectory=/home/pi/webtext
+ExecStart=/usr/bin/python3 -m flask --host=0.0.0.0
 Restart=always
 
 [Install]

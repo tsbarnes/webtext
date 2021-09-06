@@ -1,6 +1,8 @@
 [Unit]
 Description=WebText Micro Dot pHAT screen controller
 After=local-fs.target network.target
+PartOf=webtext.service
+Before=webtext.service
 
 [Service]
 Type=simple
