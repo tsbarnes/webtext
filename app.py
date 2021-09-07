@@ -3,8 +3,12 @@ import posix_ipc
 
 
 app = Flask(__name__)
-mq = posix_ipc.MessageQueue("/webtext_ipc")
-mq.block = False
+try:
+    mq = posix_ipc.MessageQueue("/webtext_ipc")
+    mq.block = False
+except posix_ipc.PermissionsError:
+    print("couldn't open message queue")
+    exit(1)
 
 
 @app.route('/', methods=['GET', 'POST'])
