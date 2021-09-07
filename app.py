@@ -15,7 +15,7 @@ except posix_ipc.PermissionsError:
 def index():
     if request.method == 'POST':
         mq.send(request.form["text"], timeout=10)
-        return 'Sent to screen!'
+        return render_template('confirm.html')
     else:
         return render_template('index.html')
 
