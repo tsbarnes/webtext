@@ -1,5 +1,5 @@
 import time
-from microdotphat import write_string, scroll, show
+from microdotphat import write_string, scroll, show, clear
 import posix_ipc
 
 
@@ -18,6 +18,7 @@ if __name__ == '__main__':
             message = None
 
         if message:
+            clear()
             write_string(" " + message[0].decode() + " ")
 
         time.sleep(1)
